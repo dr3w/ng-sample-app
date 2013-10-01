@@ -1,0 +1,7 @@
+.project
+.idea/
+.settings/
+node_modules/
+
+*~
+ngapp.*
