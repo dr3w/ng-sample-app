@@ -13,7 +13,7 @@
 <section id="app-main" ng-controller="MainCtrl">
 	<h3>Notes</h3>
 	<form ng-submit="add()">
-		<input placeholder="Add new note here" ng-model="newItemText" class="form-control" autofocus/>
+		<input placeholder="Add new note here" ng-model="newItemText" class="form-control" maxlength="55" autofocus/>
 	</form>
 
 	<ul ui-sortable ng-model="data" id="item-list">
@@ -24,7 +24,7 @@
 			</div>
 
 			<form class="edit-item" ng-submit="doneEditing(item)">
-				<input class="edit form-control" ng-model="item.text" ng-on-blur="doneEditing(item)" ng-focus="item == editingItem" />
+				<input class="edit form-control" ng-model="item.text" ng-on-blur="doneEditing(item)" ng-focus="item == editingItem" maxlength="55" />
 			</form>
 		</li>
 	</ul>
