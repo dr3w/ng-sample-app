@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="app" data-framework="angularjs">
+<head>
+	<meta charset="utf-8">
+	<title>AngularJS Sample App; Andrew Kochmar</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section id="app-main" ng-controller="MainCtrl">
+	<form ng-submit="add()">
+		<input placeholder="Add new note here" ng-model="newItemText" class="form-control" autofocus/>
+	</form>
+
+	<ul ui-sortable ng-model="data" id="item-list">
+		<li ng-repeat="item in data" ng-class="{editing: item == editingItem}" class="">
+			<div class="item-text form-control" ng-dblclick="edit(item)">
+				<span class="item-text-value">{{item.text}}</span>
+				<button type="button" class="item-remove-btn btn btn-danger btn-xs pull-right" ng-click="remove(item)">Delete</button>
+			</div>
+
+			<form class="edit-item" ng-submit="doneEditing(item)">
+				<input class="edit form-control" ng-model="item.text" ng-on-blur="doneEditing(item)" ng-focus="item == editingItem" />
+			</form>
+		</li>
+	</ul>
+	<div id="push"></div>
+</section>
+
+<footer id="footer">
+	AngularJS sample app &copy; Fall 2013; Andrew Kochmar
+</footer>
+
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/jquery-ui.js"></script>
+<script src="js/lib/angular.js"></script>
+<script src="js/lib/angular-ui-sortable.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/service.js"></script>
+<script src="js/directives.js"></script>
+</body>
+</html>
